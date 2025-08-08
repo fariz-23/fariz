@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Music Player</title>
+</head>
+<body style="background: black; color: lime; font-family: monospace; text-align: center;">
+  <h3>Now Playing</h3>
+  <audio id="audioPlayer" autoplay loop controls>
+    <source src="LANY - dna.mp3" type="audio/mp3">
+    Browser tidak mendukung audio.
+  </audio>
+
+  <script>
+    const audio = document.getElementById('audioPlayer');
+    audio.currentTime = localStorage.getItem('currentTime') || 0;
+
+    audio.addEventListener('timeupdate', () => {
+      localStorage.setItem('currentTime', audio.currentTime);
+    });
+  </script>
+</body>
+</html>

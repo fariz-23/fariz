@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retro Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="player">
+    <div class="header">MUSIC PLAYER</div>
+
+    <div class="chat-box">
+        <div class="chat-header">Pesan</div>
+        <div class="inner-chat-area" id="message-list"></div>
+        <div class="input-area">
+            <input type="text" id="inputMessage" placeholder="Ketik pesan..." class="input-box">
+            <button class="send-btn" onclick="sendMessage()">
+                <img src="kirim pesan.png" alt="kirim" class="send-icon">
+            </button>
+
+        </div>
+    </div>
+
+    <button class="open-btn" onclick="triggerInput()">open</button>
+
+    <div class="menu">
+        <button class="tab-btn active" onclick="window.location.href='index.html'">
+            <img src="pesan.png" alt="Chat" class="menu-icon">
+        </button>
+        <button class="tab-btn" onclick="window.location.href='galeri.html'">
+            <img src="galeri.png" alt="Gallery" class="menu-icon">
+        </button>
+        <button class="tab-btn" onclick="window.location.href='musik.html'">
+            <img src="logo musik.png" alt="Music" class="menu-icon">
+        </button>
+    </div>
+
+    <div class="controls">
+        <button onclick="prevSong()">
+            <img src="prevhitam.png" alt="Previous" class="control-icon">
+        </button>
+
+        <button id="playBtn" onclick="togglePlayPause()">
+            <img id="playIcon" src="play.png" alt="Play/Pause" class="control-icon">
+        </button>
+
+        <button onclick="nextSong()">
+            <img src="nexthitam.png" alt="Next" class="control-icon">
+        </button>
+    </div>
+
+<div class="time-container">
+    <span id="currentTime">00:00</span>
+    <input type="range" id="seekSlider" class="seek-slider" min="0" max="100" value="0">
+    <span id="duration">00:00</span>
+</div>
+<div class="volume-container">
+    <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+</div>
+
+<audio id="audioPlayer"></audio> <!-- kosongkan src dulu kalau belum ada lagu -->
+
+<script src="script.js"></script>
+</body>
+</html>

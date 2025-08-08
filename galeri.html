@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeri Foto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="galeri.css">
+</head>
+<body>
+  
+<!-- Kotak Galeri -->
+<div class="player-box">
+    <div class="player-header">
+        <span>Galeri</span>
+        <div class="musik-button" onclick="window.location.href='musik.html'">🎵 Musik</div>
+
+  <!-- Audio -->
+<audio id="bgMusic" muted autoplay loop>
+  <source src="LANY - Out Of My League.mp3" type="audio/mp3">
+  Browser tidak mendukung audio.
+</audio>
+
+    </div>
+    <div class="tabs">
+        <div class="active">📷 Foto (20)</div>
+        <div onclick="window.location.href='video.html'">🎥 Video (2)</div>
+    </div>
+<div class="scroll-area">
+    <div class="galeri">
+        <img src="ala1.jpg" alt="Foto 1">
+        <img src="ala3.jpg" alt="Foto 2">
+        <img src="ala5.jpg" alt="Foto 3">
+        <img src="ala2.jpg" alt="Foto 4">
+        <img src="ala7.jpg" alt="Foto 5">
+        <img src="ala14.jpg" alt="Foto 6">
+        <img src="ala15.jpg" alt="Foto 7">
+        <img src="ala16.jpg" alt="Foto 8">
+        <img src="ala17.jpg" alt="Foto 9">
+        <img src="ala20.jpg" alt="Foto 10">
+        <img src="ala4.jpg" alt="Foto 11">
+        <img src="ala8.jpg" alt="Foto 12">
+        <img src="ala9.jpg" alt="Foto 13">
+        <img src="ala21.jpg" alt="Foto 14">
+        <img src="ala11.jpg" alt="Foto 15">
+        <img src="ala18.jpg" alt="Foto 16">
+        <img src="ala19.jpg" alt="Foto 17">
+        <img src="ala6.jpg" alt="Foto 18">
+        <img src="ala13.jpg" alt="Foto 19">
+        <img src="ala12.jpg" alt="Foto 20">
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="retro-lightbox" id="lightbox">
+    <div class="player-box">
+        <div class="player-header">
+            <span id="photoCounter">1/6</span>
+            <span id="photoTitle">Foto 1</span>
+            <button onclick="closeLightbox()">✖</button>
+        </div>
+        <div class="lightbox-image-box">
+            <img id="lightboxImage" src="" alt="Foto">
+        </div>
+        <div class="player-controls">
+            <button onclick="prevImage()">←</button>
+            <button onclick="nextImage()">→</button>
+        </div>
+    </div>
+</div>
+<script>
+  window.addEventListener('click', function () {
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.muted = false;
+    bgMusic.play().catch(err => console.log("Autoplay error:", err));
+  }, { once: true });
+</script>
+
+<script src="galeri.js"></script>
+</body>
+</html>

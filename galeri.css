@@ -1,0 +1,471 @@
+body {
+    background: #f3edc8;
+    font-family: 'Silkscreen', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Kotak Galeri */
+.player-box {
+    background: #561c24;
+    border: 5px solid rgb(94, 5, 5);
+    width: 320px;
+    height: 550px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    box-sizing: border-box;
+    overflow: hidden; /* TETAP hidden agar tidak bocor */
+    justify-content: start;
+    position: relative;
+}
+
+
+/* Header */
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.player-header span {
+    color: white;
+}
+
+.player-header span:first-child {
+    color: white;
+    padding-left: 10px;  /* jarak dari sisi kiri */
+}
+
+.player-header button {
+    background: white;
+    border: px solid black;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 2px 8px;
+    cursor: pointer;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    width: 100%;
+    background: transparent;
+    gap: 5px; /* Jarak antar tab */
+    justify-content: space-around;
+    margin-bottom: 0;
+    
+}
+
+.tabs div {
+    flex: 1;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px 0;
+    background: #8b94d7; /* Warna dasar tab */
+    color: white;
+    border: none;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) inset; /* Efek sedikit seperti tekan */
+    transition: background 0.2s;
+}
+
+.tabs div:hover {
+    background: #7a84c6;
+}
+
+.tabs .active {
+    background: white;
+    color: #333;
+    box-shadow: none; /* Hilangkan efek inset */
+    border-bottom: 2px solid white; /* Tutup bagian bawah */
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Galeri */
+.galeri {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    flex: 1;
+    padding: 5px 0px 13px 0px; /* bagian atas lebih kecil */
+    background: white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    justify-items: center;
+    align-content: start;       /* bantu grid mulai dari atas */
+    position: relative;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 0 0 10px 10px;
+    border: none;         /* <--- ini tambahkan */
+    border-top: none;     /* pastikan juga tidak ada border atas */
+    border-top: none; /* Sudah nyambung dari tab */
+    margin-top: 0;
+    margin-left: 5px; /* atau padding-left */
+    }
+
+/* Foto di dalam grid */
+.galeri img {
+    width: 100%;
+    max-width: 140px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 3px solid white;
+    border-radius: 0px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    background: white;
+    cursor: pointer;
+}
+
+
+/* Posisi miring acak */
+.galeri img:nth-child(1) { transform: rotate(-5deg); }
+.galeri img:nth-child(2) { transform: rotate(-5deg); }
+.galeri img:nth-child(3) { transform: rotate(5deg); }
+.galeri img:nth-child(4) { transform: rotate(5deg); }
+.galeri img:nth-child(5) { transform: rotate(-5deg); }
+.galeri img:nth-child(6) { transform: rotate(-5deg); }
+.galeri img:nth-child(7) { transform: rotate(5deg); }
+.galeri img:nth-child(8) { transform: rotate(5deg); }
+.galeri img:nth-child(9) { transform: rotate(-5deg); }
+.galeri img:nth-child(10) { transform: rotate(-5deg); }
+.galeri img:nth-child(11) { transform: rotate(5deg); }
+.galeri img:nth-child(12) { transform: rotate(5deg); }
+.galeri img:nth-child(13) { transform: rotate(-5deg); }
+.galeri img:nth-child(14) { transform: rotate(-5deg); }
+.galeri img:nth-child(15) { transform: rotate(5deg); }
+.galeri img:nth-child(16) { transform: rotate(5deg); }
+.galeri img:nth-child(17) { transform: rotate(-5deg); }
+.galeri img:nth-child(18) { transform: rotate(-5deg); }
+.galeri img:nth-child(19) { transform: rotate(5deg); }
+.galeri img:nth-child(20) { transform: rotate(5deg); }
+
+/* Hover efek (opsional) */
+.galeri img:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 2;
+}
+
+
+/* Tombol Musik */
+.musik-button {
+    background: purple;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-left: auto;
+}
+
+/* ========================= */
+/* LIGHTBOX BARU */
+/* ========================= */
+
+/* LIGHTBOX BARU */
+.retro-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: 5786ec(255, 250, 250, 0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Kotak lightbox seperti galeri */
+.retro-lightbox .player-box {
+    background: black;               /* Kotak utama hitam polos */
+    border: 5px solid black;          /* Biar sama seperti galeri */
+    width: 320px;
+    height: 550px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Header di atas tetap */
+.retro-lightbox .player-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Silkscreen', monospace;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* Area gambar */
+.lightbox-image-box {
+    width: 100%;
+    flex: 1;
+    background: black;              /* Area gambar tetap hitam */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;                   /* Tidak ada border tambahan */
+    box-sizing: border-box;
+}
+
+/* Gambar pas di tengah, proporsional */
+.lightbox-image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;            /* Tetap proporsional, ada area hitam di kosongnya */
+    background: black;
+}
+
+/* Tombol navigasi */
+.retro-lightbox .player-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.retro-lightbox .player-controls button {
+    background: white;
+    border: 2px solid black;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.lightbox-image-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-image-box video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.center-button {
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.side-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+/* Container video */
+.lightbox-image-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Video */
+.lightbox-image-box video {
+    width: 100%;
+    max-height: 100%;
+    background: black;
+}
+
+/* Posisi tombol */
+.center-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: transparent;  /* TANPA BACKGROUND */
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Pastiin di paling atas */
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.center-button img {
+    width: 36px; /* Ukuran ikon */
+    height: 36px;
+    object-fit: contain;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    pointer-events: none;
+    z-index: 1001; /* Ikon juga di atas */
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.4)); /* opsional: biar lebih keliatan */
+}
+
+
+/* Tombol Next / Prev */
+/* Tombol NEXT & PREV */
+.side-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 1000; /* Di atas semua */
+    pointer-events: auto;
+}
+
+.side-button img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    pointer-events: none;
+    z-index: 1001;
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.4)); /* Opsional buat lebih tajem */
+}
+
+.side-button.left {
+    left: 10px;
+}
+
+.side-button.right {
+    right: 10px;
+}
+
+
+/* Gambar tombol (ikon) */
+.center-button img,
+.side-button img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    pointer-events: none;
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.4)); /* opsional: bikin lebih kontras */
+}
+
+.center-button,
+.side-button {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.center-button.hidden,
+.side-button.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.center-button {
+    display: flex;
+    /* properti lainnya seperti biasa */
+}
+
+.side-button {
+    display: flex;
+    /* properti lainnya seperti biasa */
+}
+
+#audioPlayer {
+    display: none;
+}
+
+.scroll-area {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+
+    overflow-y: scroll; /* Scroll selalu muncul secara vertikal */
+    overflow-x: hidden; /* Hindari scroll horizontal */
+    background: white;
+    border-radius: 0 0 10px 10px;
+    padding: 5px 8px 13px 10px;
+    box-sizing: border-box;
+
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #d8d8d8 transparent;
+}
+
+/* Chrome, Edge, Safari */
+.scroll-area::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scroll-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 10px;
+}
+
+
+

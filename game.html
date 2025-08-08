@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Retro Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="game.css" />
+</head>
+<body>
+  <div class="terminal-box">
+    <div class="start-screen" id="startScreen">
+      <div class="start-content">
+        <img src="roket.png" alt="Roket" class="rocket-icon" />
+        <h1>SPACE SHOOTER</h1>
+        <p>Tembak alien dan selamatkan galaksi!</p>
+        <button onclick="startGame()">MULAI</button>
+      </div>
+    </div>
+
+    <!-- Game Over Screen -->
+<div class="game-over-screen" id="gameOverScreen">
+  <div class="game-over-content">
+    <h1 class="game-over-title">GAME OVER</h1>
+    <p id="scoreText">Score: 0</p>
+    <p id="highScoreText">High Score: 0</p>
+    <p class="quote">“bocah cupuu👎👎👎”</p>
+    <button class="retry-btn" onclick="restartGame()">MAIN LAGI</button>
+  </div>
+</div>
+
+
+    <div class="terminal-header">
+      <div class="title">HeyTML‑OS v1.0</div>
+      <div class="tab"onclick="window.location.href='index.html'">Menu</div>
+    </div>
+
+    <div class="filename-bar">
+      GAME.EXE
+      <span id="game-status">Level 1 | Score: 0</span>
+    </div>
+
+    <div class="game-body">
+      <canvas id="gameCanvas" width="300" height="370"></canvas>
+    </div>
+
+    <div class="info-row">
+      <div id="lives">❤️❤️❤️</div>
+    </div>
+
+    <div class="game-controls">
+      <button id="leftBtn" onmousedown="moveLeft()" onmouseup="stopMove()" ontouchstart="moveLeft()" ontouchend="stopMove()">⬅</button>
+      <button id="rightBtn" onmousedown="moveRight()" onmouseup="stopMove()" ontouchstart="moveRight()" ontouchend="stopMove()">➡</button>
+    </div>
+  </div>
+    <audio id="shootSound" src="shoot.wav" preload="auto"></audio>
+    <audio id="explodeSound" src="shoot.mp3" preload="auto"></audio>
+
+  <script src="game.js"></script>
+</body>
+</html>

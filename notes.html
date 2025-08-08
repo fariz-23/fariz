@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Terminal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="notes.css">
+</head>
+<body>
+    <!-- Audio -->
+  <audio id="bgMusic" muted autoplay loop>
+    <source src="LANY - dna.mp3" type="audio/mp3">
+    Browser tidak mendukung audio.
+  </audio>
+  <div class="player-box terminal-box">
+    <div class="header">
+      <div class="title">notes</div>
+      <div class="countdown-btn"onclick="window.location.href='game.html'">🎮 Game</div>
+    </div>
+    <div class="control-divider"></div>
+    <div class="filename">buat alaaa<span class="chars" id="charCount">0/0 chars</span></div>
+    <pre id="output" class="content"></pre>
+    <div class="control-divider"></div>
+    <div class="controls">
+      <button id="playPauseBtn" onclick="togglePause()" class="pause-btn">▶ PLAY</button>
+      <button onclick="skipText()" class="skip-btn">
+        <img src="nexthitam.png" alt="Skip" class="icon-img"> SKIP
+      </button>
+    </div>
+  </div>
+<script>
+  window.addEventListener('click', function () {
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.muted = false;
+    bgMusic.play().catch(err => console.log("Autoplay error:", err));
+  }, { once: true });
+</script>
+  <script src="notes.js"></script>
+</body>
+</html>

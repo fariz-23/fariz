@@ -1,0 +1,205 @@
+body {
+  background: #240046;
+  font-family: 'Silkscreen', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.terminal-box {
+  width: 320px;
+  height: 550px;
+  background: #001100;
+  border: 5px solid lime;
+  box-shadow: 0 0 15px lime;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  color: #00ff00;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.tab {
+  background: #008000;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+.filename-bar {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #00ff00;
+  font-size: 12px;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.game-body {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  background: black;
+  border: 2px solid #00ff00;
+  border-radius: 4px;
+}
+
+.info-row {
+  text-align: center;
+  font-size: 18px;
+  margin: 8px 0 0 0;
+  color: red;
+}
+
+.game-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.game-controls button {
+  flex: 1;
+  padding: 10px;
+  font-size: 18px;
+  background: #006400;
+  color: white;
+  border: none;
+  margin: 0 5px;
+  border-radius: 5px;
+  font-family: 'Silkscreen', monospace;
+  cursor: pointer;
+}
+
+/* === START SCREEN NYA DITEMPATKAN DI DALAM terminal-box === */
+.start-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
+  font-family: 'Silkscreen', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 99;
+}
+
+.start-content {
+  text-align: center;
+}
+
+.rocket-icon {
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+.start-screen h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.start-screen p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.start-screen button {
+  background: #00cc66;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Silkscreen', monospace;
+  font-size: 14px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Tambahan untuk Game Over */
+.game-over-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.game-over-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* ⬅️ ini yang bikin teks jadi di tengah */
+  background: #001100;
+  border: 2px solid lime;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  max-width: 260px;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+
+.game-over-title {
+  font-size: 20px;
+  color: red;
+  margin-bottom: 10px;
+}
+
+#scoreText,
+#highScoreText {
+  font-size: 14px;
+  color: white;
+  margin: 2px 0;
+}
+
+#highScoreText {
+  color: yellow;
+}
+
+.quote {
+  font-size: 12px;
+  color: pink;
+  margin: 15px 10px;
+  text-align: center;
+}
+
+.retry-btn {
+  background: #0066ff;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Silkscreen', monospace;
+  font-size: 14px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+

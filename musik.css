@@ -1,0 +1,269 @@
+/* === GLOBAL === */
+body {
+    font-family: 'Silkscreen', monospace;
+    background: #f9f1c8;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: lime;
+}
+
+/* === PLAYER BOX === */
+.player-box {
+    width: 320px;
+    height: 550px;
+    background: #000;
+    border: 5px solid lime;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* === HEADER === */
+.player-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    border-bottom: 2px solid lime; /* 👉 tambahin garis ini */
+    padding-bottom: 6px;           /* biar ada jarak dari teks ke garis */
+    box-sizing: border-box;        /* penting supaya width dan padding dihitung pas */
+}
+
+
+.musik-button {
+    background: lime;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* === NOW PLAYING === */
+.music-nowplaying {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    color: white;
+}
+
+.music-nowplaying img {
+    width: 60px;
+    height: 60px;
+    border: 2px solid lime;
+    margin-right: 10px;
+}
+
+.music-info {
+    flex: 1;
+    font-size: 12px;
+}
+
+/* === TIME DISPLAY === */
+.time-display {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin: 5px 0;
+    color: lime;
+}
+
+progress {
+    flex: 1;
+    margin: 0 5px;
+    appearance: none;
+    height: 8px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: lime;
+}
+
+progress::-webkit-progress-value {
+    background-color: lime;
+}
+
+/* === MUSIC CONTROLS === */
+.music-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.music-controls button {
+    background: #2c2c2c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0;
+    aspect-ratio: 1/1;
+}
+
+.music-controls button:nth-child(1),
+.music-controls button:nth-child(3) {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+}
+
+.music-controls button:nth-child(2) {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    background: limegreen;
+    color: white;
+}
+
+/* === PLAYLIST SECTION === */
+.playlist-header {
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+    color: lime;
+    padding: 8px 0;
+    text-align: left;
+    border-bottom: 2px solid lime;
+    margin-bottom: 5px;
+}
+
+.playlist {
+    flex: 1;
+    width: 100%;
+    margin-top: 0px;
+    font-size: 12px;
+    background: black;
+    border: none;
+    border-radius: 10px;
+    overflow-y: auto;
+    padding: 0px;
+    box-sizing: border-box;
+    color: lime;
+}
+
+/* HAPUS border-bottom di sini */
+.playlist div {
+    padding: 5px;
+    cursor: pointer;
+    color: lime;
+}
+
+.playlist div:hover {
+    background-color: #003300;
+    color: lime;
+}
+
+/* Playlist Item (yang bener) */
+.playlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 4px; /* Lebih kecil dari sebelumnya */
+    color: lime;
+    font-size: 12px;
+    font-family: 'Silkscreen', monospace;
+    cursor: pointer;
+}
+
+.playlist-item:not(:last-child) {
+    border-bottom: 1px solid lime;
+}
+
+.song-info {
+    flex: 1;
+    overflow: hidden;
+}
+
+.song-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+
+.song-artist {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.song-duration {
+    margin-left: 10px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.control-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.progress-container {
+    position: relative;
+    flex: 1;
+    height: 8px;
+    background-color: #444;
+    border-radius: 4px;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+#progressBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: lime;
+    border-radius: 4px;
+}
+
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #444;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: white;
+    transition: width 0.2s linear;
+}
+
+/* Pastikan progress bar tidak goyang saat berubah */
+#progressBar {
+    transition: none;
+}
+
+/* Kunci lebar tampilan waktu supaya teks ga bikin layout loncat */
+.time-display span {
+    display: inline-block;
+    width: 45px; /* cukup untuk waktu "00:00" s.d. "59:59" */
+    text-align: center;
+}
